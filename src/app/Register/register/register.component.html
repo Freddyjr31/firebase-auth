@@ -1,0 +1,60 @@
+<div class="flex justify-center items-center min-h-screen BackgroundLogin">
+  <div
+    class="max-w-lg rounded overflow-hidden shadow-lg px-10 py-5 mx-10 bg-white"
+  >
+    <h1 class="text-lg text-teal-500 text-center font-bold">¡Bienvenido!</h1>
+    <div class="px-4 py-4 justify-center gap-3">
+      <div class="mb-2">
+        <h3 class="text-sm text-gray-500 text-center font-semibold">
+          Registrate
+        </h3>
+      </div>
+      <form
+        class="flex flex-col gap-5"
+        [formGroup]="SingUPForm"
+        (submit)="onSubmit()"
+      >
+        <div>
+          <div class="w-full flex flex-col">
+            <label class="text-gray-400">ingrese su correo</label>
+            <input
+              class="py-2 px-4 shadow bg-white hover:shadow-md border hover:border-teal-300 outline-teal-300 rounded-md"
+              placeholder="user@gmail.com"
+              formControlName="username"
+              type="email"
+            />
+          </div>
+        </div>
+
+        <div>
+          <div class="w-full flex flex-col">
+            <label class="text-gray-400">ingrese su contraseña</label>
+            <input
+              class="py-2 px-4 shadow bg-white hover:shadow-md border hover:border-teal-300 outline-teal-300 rounded-md"
+              formControlName="password"
+            />
+          </div>
+        </div>
+
+        <div *ngIf="SingUPForm.invalid">
+          <button
+            class="w-full shadow rounded-md p-3 bg-gray-400 text-white font-bold"
+            type="submit"
+            [disabled]="SingUPForm.invalid"
+          >
+            Registrarme
+          </button>
+        </div>
+
+        <div *ngIf="SingUPForm.valid">
+          <button
+            class="w-full shadow rounded-md p-3 bg-teal-500 text-white hover:bg-teal-400"
+            type="submit"
+          >
+            Registrarme
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

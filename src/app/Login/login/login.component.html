@@ -1,0 +1,142 @@
+<div class="flex justify-center items-center min-h-screen BackgroundLogin">
+  
+  <app-alert [alertMessage]="dataInfo" [showAlert]="alertVisible"></app-alert>
+  <app-notification [showNotification]="notificationVisible" [notificationMessage]="miMensaje"></app-notification>
+
+  <div
+    class="max-w-lg rounded overflow-hidden shadow-lg px-10 py-5 mx-10 bg-white"
+  >
+    <div class="px-4 py-4 justify-center gap-3">
+      <div class="text-md mb-2 text-gray-600 text-center font-semibold">
+        Iniciar sesión
+      </div>
+      <form
+        class="flex flex-col gap-5"
+        [formGroup]="LoginForm"
+        (submit)="onSubmit()"
+      >
+        <div>
+          <div class="w-full flex flex-col">
+            <label class="text-gray-500">Dirección de correo </label>
+            <input
+              class="py-2 px-4 shadow bg-white hover:shadow-md border hover:border-teal-300 outline-teal-300 rounded-md"
+              placeholder="user@gmail.com"
+              formControlName="username"
+              type="email"
+              [ngClass]="{
+                error:
+                  LoginForm.controls.username.invalid &&
+                  (LoginForm.controls.username.dirty ||
+                    LoginForm.controls.username.touched)
+              }"
+            />
+
+            <div
+              *ngIf="
+                LoginForm.controls.username.invalid &&
+                (LoginForm.controls.username.dirty ||
+                  LoginForm.controls.username.touched)
+              "
+            >
+              <div
+                *ngIf="LoginForm.controls.username.errors"
+                class="text-red-600"
+              >
+                Por favor, introduce un email válido.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="w-full flex flex-col">
+            <label class="text-gray-500">Contraseña </label>
+            <input
+              type="password"
+              placeholder="********"
+              class="py-2 px-4 shadow bg-white hover:shadow-md border hover:border-teal-300 outline-teal-300 rounded-md"
+              formControlName="password"
+              [ngClass]="{
+                error:
+                  LoginForm.controls.password.invalid &&
+                  (LoginForm.controls.password.dirty ||
+                    LoginForm.controls.password.touched)
+              }"
+            />
+          </div>
+
+          <div
+            *ngIf="
+              LoginForm.controls.password.invalid &&
+              (LoginForm.controls.password.dirty ||
+                LoginForm.controls.password.touched)
+            "
+          >
+            <div
+              *ngIf="LoginForm.controls.password.errors"
+              class="text-red-600"
+            >
+              Por favor, introduce la contraseña
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="LoginForm.invalid">
+          <button
+            class="w-full shadow rounded-md p-3 bg-gray-400 text-white font-bold ..."
+            type="button"
+            [disabled]="LoginForm.invalid"
+            disabled
+          >
+            Ingresar
+          </button>
+        </div>
+
+        <div *ngIf="LoginForm.valid">
+          <button
+            class="w-full shadow rounded-md p-3 bg-teal-500 hover:bg-teal-400 text-white font-bold"
+            type="submit"
+            [disabled]="LoginForm.invalid"
+          >
+            <span *ngIf="spinner">
+              <div
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                fill="none"
+                class="inline-block h-5 w-5 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+              ></div>
+            </span>
+
+            Ingresar
+          </button>
+        </div>
+      </form>
+
+      <div class="mt-4 items-center justify-center">
+        <div class="flex items-center space-x-2">
+          <div class="flex-grow h-0.5 bg-gray-200"></div>
+          <div>o</div>
+          <div class="flex-grow h-0.5 bg-gray-200"></div>
+        </div>
+      </div>
+
+      <div class="mt-4">
+        <button
+          class="w-full shadow rounded-md p-3 bg-white hover:bg-gray-50 text-teal-500 font-bold border hover:border-teal-400"
+          type="submit"
+          (click)="LoginGoogle()"
+        >
+          Ingresar con Google
+        </button>
+      </div>
+
+      <hr class="mt-5" />
+
+      <div class="mt-4">
+        <a routerLink="/singUp" routerLinkActive="active" class="text-teal-500"
+          >¿No tienes una cuenta?, Registrate
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

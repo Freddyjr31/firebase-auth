@@ -1,5 +1,7 @@
 # FirebaseLogin
 
+sistema de autenticación creado en angular utilizando como proveedor de servicios a firebase
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
 
 ## Development server
