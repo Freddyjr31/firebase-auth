@@ -9,3 +9,30 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.BackgroundHome{
+    background-image: url('/assets/img/pexels-ryutaro-tsukata-5220130.jpg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Estilo para Chrome, Edge y Safari */
+body::-webkit-scrollbar {
+    width: 3px; /* Ancho de la barra de desplazamiento */
+}
+
+body::-webkit-scrollbar-track {
+    background: rgb(250, 250, 250); /* Color de la zona de desplazamiento */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 255, 106); /* Color de la barra de desplazamiento */
+    border-radius: 20px; /* Redondez de la barra de desplazamiento */
+}
+
+/* Estilo para Firefox */
+body {
+    scrollbar-width: thin; /* "auto" o "thin" */
+    scrollbar-color: rgb(0, 255, 106) rgb(56, 222, 170); /* color de la barra de desplazamiento y la zona de desplazamiento */
+}
