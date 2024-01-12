@@ -6,6 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent {
+
+  //* Parametros recibidos que se mostraran en el alert
   @Input() showNotification = false;
   @Input() notificationMessage = '';
 

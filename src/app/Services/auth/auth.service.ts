@@ -8,14 +8,16 @@ export class AuthService {
 
   constructor(private auth:Auth) { }
 
+  //* registrar usuario
   registerUser({username,password}:any){
     return createUserWithEmailAndPassword(this.auth, username, password)
   }
 
+  //* Iniciar sesión 
   singIn({username,password}:any){
     return signInWithEmailAndPassword(this.auth, username, password)
     .then((response) => {
-      console.log(response)
+      // console.log(response)
       var responseFetch:any = {}
       responseFetch = {'code': 200, 'message': 'Usuario autenticado', 'data': response }
       return responseFetch
@@ -36,10 +38,12 @@ export class AuthService {
     })
   }
 
+  //* Iniciar sesión con google
   singInGoogle(){
     return signInWithPopup(this.auth, new GoogleAuthProvider())
   }
 
+  //* cerrar sesión 
   logout(){
     return signOut(this.auth)
   }

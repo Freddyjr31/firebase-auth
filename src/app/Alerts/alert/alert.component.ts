@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class AlertComponent {
 
   //showAlert = false;
+  //* Recibo los paramatros que deben mostrarse en el mensaje
   @Input() alertMessage: string | undefined;
   @Input() showAlert: boolean = false;
 
